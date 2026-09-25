@@ -1,0 +1,229 @@
+:root {
+  color-scheme: dark;
+  --bg: #0e0e10;
+  --panel: #161619;
+  --line: #2c2c32;
+  --text: #f3f3f6;
+  --muted: #9c9ca6;
+  --accent: #6ea8ff;
+  --accent-press: #8bbcff;
+  --danger: #ff7a7a;
+  --ok: #6ad6b2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 360px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 220px;
+}
+
+.header {
+  padding: 12px 14px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-weight: 650;
+}
+
+h1 {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.panel {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.panel:last-of-type {
+  border-bottom: 0;
+}
+
+.muted {
+  margin: 0;
+  color: var(--muted);
+}
+
+.error {
+  margin: 0;
+  color: var(--danger);
+}
+
+.name {
+  margin: 0 0 2px;
+  font-weight: 600;
+}
+
+.email {
+  margin: 0 0 4px;
+  color: var(--accent);
+  word-break: break-all;
+}
+
+.assigned {
+  margin: 0 0 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button,
+input {
+  font: inherit;
+  color: var(--text);
+}
+
+button {
+  background: #232328;
+  border: 1px solid #3a3a42;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: #1c2a44;
+  border-color: #3d5f99;
+}
+
+button.danger {
+  color: var(--danger);
+  border-color: #5a3030;
+  background: #241616;
+  padding: 4px 7px;
+}
+
+.status {
+  color: var(--ok);
+}
+
+.new-label {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.new-label input {
+  flex: 1;
+  min-width: 0;
+  background: #111114;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.label-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 280px;
+  overflow: auto;
+}
+
+.label-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-top: 1px solid #232328;
+}
+
+.label-toggle {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 4px 0;
+  border-radius: 4px;
+}
+
+.label-toggle:hover {
+  border-color: transparent;
+  color: var(--accent-press);
+}
+
+.check {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #5a5a64;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex: 0 0 16px;
+  background: #111114;
+}
+
+.label-toggle[aria-pressed="true"] .check {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0e0e10;
+}
+
+.label-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.on-sender {
+  color: var(--ok);
+  font-size: 11px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
