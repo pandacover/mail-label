@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mail Label</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Mail Label</h1>
+    </header>
+
+    <section class="panel" aria-labelledby="sender-heading">
+      <h2 id="sender-heading">Sender</h2>
+      <p id="sender-empty" class="muted">Click a thread in Gmail to capture the sender.</p>
+      <p id="sender-error" class="error" hidden></p>
+      <div id="sender-card" hidden>
+        <p id="sender-name" class="name"></p>
+        <p id="sender-email" class="email"></p>
+        <p id="sender-labels" class="muted assigned"></p>
+        <div class="row">
+          <button type="button" id="copy-btn">Copy email</button>
+          <span id="copy-status" class="status" hidden></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="labels-heading">
+      <h2 id="labels-heading">Labels</h2>
+      <form id="new-label-form" class="new-label">
+        <label class="sr-only" for="new-label">New label name</label>
+        <input
+          id="new-label"
+          name="label"
+          type="text"
+          maxlength="40"
+          placeholder="New label"
+          autocomplete="off"
+        />
+        <button type="submit">Add</button>
+      </form>
+      <p id="label-hint" class="muted">No labels yet.</p>
+      <ul id="label-list" class="label-list"></ul>
+    </section>
+
+    <script src="shared.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
