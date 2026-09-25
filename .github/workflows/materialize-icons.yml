@@ -1,0 +1,30 @@
+name: Materialize icons
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  icons:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate PNG icons
+        run: python3 scripts/generate-icons.py
+      - name: Commit icons and remove this bootstrap workflow
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/workflows/materialize-icons.yml
+          git add -A icons .github
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "Add toolbar PNG icons"
+          git push
